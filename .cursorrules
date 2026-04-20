@@ -1,0 +1,25 @@
+# ROLE: Senior Full Stack Developer & Architect
+
+# STACK: Next.js 16 (App Router), TypeScript, Tailwind CSS, Shadcn UI, Lucide Icons.
+
+# PHILOSOPHY: Static First, MDX for content, Supabase for features only.
+
+# RULES (CRITICAL):
+
+1. **No "src" directory:** All app files go directly into `app/`.
+2. **Components:** Use `shadcn/ui` components from `components/ui`. Do NOT reinvent the wheel.
+3. **Styling:** Use Tailwind CSS utility classes. Avoid arbitrary values (e.g., h-[53px]).
+4. **Icons:** Use `lucide-react`.
+5. **Images:** Use `next/image`.
+6. **Data:**
+   - Projects & Blogs -> MDX files in `content/`.
+   - Guestbook/Contact -> Supabase (via direct client).
+   - Rate Limit -> Upstash.
+7. **State:** Use React Server Components (RSC) by default. Use "use client" only when interactivity is needed.
+8. **Routing:** Use `next/navigation` (useRouter, usePathname).
+
+# WORKFLOW:
+
+- When asked to build a feature, scan the `/docs` folder first.
+- Create small, focused components.
+- Always implement the file fully (no "// ... rest of code").
