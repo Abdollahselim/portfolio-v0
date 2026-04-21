@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { ContactForm } from "@/features/contact";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Abdullah Selim for e-commerce development projects and collaborations.",
+};
 
 export default function ContactPage(): React.ReactElement {
   return (

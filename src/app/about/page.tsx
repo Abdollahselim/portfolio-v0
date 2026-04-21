@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui";
 import { getOwnerProfile } from "@/features/profile";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "E-commerce web developer with 4+ years building high-impact stores across Egypt and Saudi Arabia.",
+};
 
 export default function AboutPage(): React.ReactElement {
   const ownerResult = getOwnerProfile();

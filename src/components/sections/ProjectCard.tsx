@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { Badge, Button } from "@/components/ui";
 
 interface SectionProjectCardProps {
@@ -13,8 +16,16 @@ export function ProjectCard({
   platform,
   title,
 }: SectionProjectCardProps): React.ReactElement {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <article className="rounded-md border border-white/10 bg-[#111111] p-6">
+    <motion.article
+      className="rounded-md border border-white/10 bg-[#111111] p-6"
+      initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mb-5">
         <Badge>{platform}</Badge>
       </div>
@@ -25,6 +36,6 @@ export function ProjectCard({
           Visit project
         </Button>
       </div>
-    </article>
+    </motion.article>
   );
 }

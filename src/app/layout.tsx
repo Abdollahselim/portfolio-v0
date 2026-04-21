@@ -14,8 +14,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abdullah Mahmoud Selim",
-  description: "E-Commerce Web Developer in Mansoura, Egypt.",
+  title: {
+    default: "Abdullah Selim — E-Commerce Web Developer",
+    template: "%s | Abdullah Selim",
+  },
+  description:
+    "E-commerce web developer with 4+ years delivering high-performing stores across WordPress, Shopify, Salla, and Zid. Based in Mansoura, Egypt.",
+  keywords: [
+    "e-commerce developer",
+    "WordPress",
+    "Shopify",
+    "Salla",
+    "Zid",
+    "web developer Egypt",
+    "Next.js developer",
+  ],
+  authors: [{ name: "Abdullah Selim" }],
+  creator: "Abdullah Selim",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    siteName: "Abdullah Selim",
+    title: "Abdullah Selim — E-Commerce Web Developer",
+    description:
+      "E-commerce web developer with 4+ years delivering high-performing stores across WordPress, Shopify, Salla, and Zid. Based in Mansoura, Egypt.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdullah Selim — E-Commerce Web Developer",
+    description:
+      "E-commerce web developer with 4+ years delivering high-performing stores across WordPress, Shopify, Salla, and Zid. Based in Mansoura, Egypt.",
+    creator: "@abdullahselim",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

@@ -1,9 +1,34 @@
+import type { Metadata } from "next";
 import { BlogPostContent, getBlogPost, getBlogPosts } from "@/features/blog";
 
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const postResult = await getBlogPost(slug);
+
+  if (!postResult.success) {
+    return { title: "Post not found" };
+  }
+
+  const { frontmatter } = postResult.data;
+
+  return {
+    title: frontmatter.title,
+    description: frontmatter.description,
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.description,
+      type: "article",
+      publishedTime: frontmatter.date,
+    },
+  };
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {

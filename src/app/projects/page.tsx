@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { getProjectList, ProjectList } from "@/features/projects";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "E-commerce and web systems built across Egypt and Saudi Arabia using WordPress, Shopify, Salla, Zid, and Next.js.",
+};
 
 export default async function ProjectsPage(): Promise<React.ReactElement> {
   const projectsResult = await getProjectList();
