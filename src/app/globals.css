@@ -124,3 +124,38 @@
   }
 }
 
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card: #111111;
+  --card-foreground: #ededed;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --primary: #10b981;
+  --primary-foreground: #000000;
+  --border: rgba(255, 255, 255, 0.1);
+  color-scheme: dark;
+}
+
+body {
+  background: #0a0a0a;
+  color: #ededed;
+}
+
+a {
+  color: inherit;
+}
+
+@keyframes portfolio-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.portfolio-marquee {
+  animation: portfolio-marquee 24s linear infinite;
+}

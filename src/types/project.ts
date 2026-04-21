@@ -1,5 +1,8 @@
 import type { MdxContent, MdxFrontmatter } from "./content";
 
-export type ProjectFrontmatter = MdxFrontmatter;
+export interface ProjectFrontmatter extends MdxFrontmatter {
+  platform: string;
+  url: string;
+}
 
 export type Project = MdxContent<ProjectFrontmatter>;

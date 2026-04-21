@@ -13,7 +13,7 @@ const guestbookEntries = [
 
 export function GuestbookList(): React.ReactElement {
   return (
-    <div>
+    <div className="grid gap-4 md:grid-cols-2">
       {guestbookEntries.map((entry) => (
         <GuestbookEntry
           key={`${entry.name}-${entry.message}`}

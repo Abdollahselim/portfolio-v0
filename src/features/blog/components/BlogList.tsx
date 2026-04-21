@@ -12,7 +12,7 @@ export function BlogList({ posts }: BlogListProps): React.ReactElement {
   }
 
   return (
-    <div>
+    <div className="grid gap-4 md:grid-cols-2">
       {posts.map((post) => (
         <BlogCard key={post.slug} post={post} />
       ))}

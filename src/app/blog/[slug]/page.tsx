@@ -1,4 +1,4 @@
-import { getBlogPost, getBlogPosts } from "@/features/blog";
+import { BlogPostContent, getBlogPost, getBlogPosts } from "@/features/blog";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -26,20 +26,12 @@ export default async function BlogPostPage({
 
   if (!postResult.success) {
     return (
-      <main className="py-10">
+      <main className="px-4 py-20">
         <h1>Blog post unavailable</h1>
         <p>Unable to load this blog post.</p>
       </main>
     );
   }
 
-  return (
-    <main className="py-10">
-      <article>
-        <h1>{postResult.data.frontmatter.title}</h1>
-        <p>{postResult.data.frontmatter.description}</p>
-        <pre>{postResult.data.content}</pre>
-      </article>
-    </main>
-  );
+  return <BlogPostContent post={postResult.data} />;
 }

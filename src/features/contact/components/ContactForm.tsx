@@ -31,6 +31,10 @@ export function ContactForm(): React.ReactElement {
         setError("email", { message: fieldErrors.email[0] });
       }
 
+      if (fieldErrors.subject?.[0]) {
+        setError("subject", { message: fieldErrors.subject[0] });
+      }
+
       if (fieldErrors.message?.[0]) {
         setError("message", { message: fieldErrors.message[0] });
       }
@@ -44,27 +48,78 @@ export function ContactForm(): React.ReactElement {
   }
 
   return (
-    <form onSubmit={handleSubmit(handleValidSubmit)}>
+    <form
+      className="rounded-md border border-white/10 bg-[#111111] p-6"
+      onSubmit={handleSubmit(handleValidSubmit)}
+    >
       <div>
         <label htmlFor="name">Name</label>
-        <input id="name" type="text" {...register("name")} />
-        {errors.name?.message && <p>{errors.name.message}</p>}
+        <input
+          className="mt-2 w-full rounded-md border border-white/10 bg-[#0a0a0a] px-4 py-3"
+          id="name"
+          type="text"
+          {...register("name")}
+        />
+        {errors.name?.message && (
+          <p className="mt-2 text-sm text-red-300">{errors.name.message}</p>
+        )}
       </div>
 
-      <div>
+      <div className="mt-5">
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" {...register("email")} />
-        {errors.email?.message && <p>{errors.email.message}</p>}
+        <input
+          className="mt-2 w-full rounded-md border border-white/10 bg-[#0a0a0a] px-4 py-3"
+          id="email"
+          type="email"
+          {...register("email")}
+        />
+        {errors.email?.message && (
+          <p className="mt-2 text-sm text-red-300">{errors.email.message}</p>
+        )}
       </div>
 
-      <div>
+      <div className="mt-5">
+        <label htmlFor="subject">Subject</label>
+        <input
+          className="mt-2 w-full rounded-md border border-white/10 bg-[#0a0a0a] px-4 py-3"
+          id="subject"
+          type="text"
+          {...register("subject")}
+        />
+        {errors.subject?.message && (
+          <p className="mt-2 text-sm text-red-300">{errors.subject.message}</p>
+        )}
+      </div>
+
+      <div className="mt-5">
         <label htmlFor="message">Message</label>
-        <textarea id="message" {...register("message")} />
-        {errors.message?.message && <p>{errors.message.message}</p>}
+        <textarea
+          className="mt-2 min-h-36 w-full rounded-md border border-white/10 bg-[#0a0a0a] px-4 py-3"
+          id="message"
+          {...register("message")}
+        />
+        {errors.message?.message && (
+          <p className="mt-2 text-sm text-red-300">{errors.message.message}</p>
+        )}
       </div>
 
-      <button type="submit">Validate message</button>
-      {statusMessage && <p>{statusMessage}</p>}
+      <div className="mt-5">
+        <label htmlFor="budget">Budget optional</label>
+        <input
+          className="mt-2 w-full rounded-md border border-white/10 bg-[#0a0a0a] px-4 py-3"
+          id="budget"
+          type="text"
+          {...register("budget")}
+        />
+      </div>
+
+      <button
+        className="mt-6 rounded-md bg-[#10b981] px-5 py-3 font-semibold text-black"
+        type="submit"
+      >
+        Validate message
+      </button>
+      {statusMessage && <p className="mt-4 text-gray-400">{statusMessage}</p>}
     </form>
   );
 }
